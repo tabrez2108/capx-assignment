@@ -1,20 +1,33 @@
 @import "tailwindcss";
 
+/* 👇 Tell Tailwind to scan HeroUI’s theme files */
+@source "../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+@plugin '../../hero.ts';
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-primary: #8DBC1A;
+  --color-secondary: #0E0E0E;
+  --color-darkBronze: #334600;
+  --color-lightGoldenrodYellow: #ecffbb;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --drop-shadow-gb-glow: 0px 0px 150px #8DBC1A;
+  --drop-shadow-card: 0px 0px 15px #8DBC1A;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0E0E0E;
     --foreground: #ededed;
   }
 }
@@ -23,4 +36,12 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+span[data-slot='indicator'] {
+  @apply !rotate-90
+}
+
+span[data-slot='indicator'][data-open='true'] {
+  @apply !-rotate-90
 }

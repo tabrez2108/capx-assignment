@@ -1,0 +1,28 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+
+const imgPath = "/assets/images/";
+
+const NotEligibleImage: React.FC = () => {
+  return (
+    <section className="w-full max-w-70 mx-auto">
+      <div className="w-full max-w-60 mx-auto relative">
+        <Image 
+          fill
+          src={`${imgPath}not-eligible-img.webp`} 
+          alt="Monad" 
+          loading="lazy"
+        className="!w-full !h-auto !static"
+        />
+      </div>
+
+      <p className="text-white text-base font-normal leading-[1.35] text-center">
+        Sorry, you didn&#34;t make it in this wave. Keep an eye out for more ways to get involved soon!
+      </p>
+    </section>
+  );
+};
+
+export default NotEligibleImage;
