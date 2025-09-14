@@ -12,7 +12,7 @@ import EyeHideIcon from "@/assets/icons/Eye-Hide";
 
 type InputFieldType = "textField" | "passwordField" | "dateField" | "timeField";
 
-interface CustomInputFieldProps {
+interface HeroInputProps {
   inputType: InputFieldType;
   type?: string;
   label?: string;
@@ -48,7 +48,7 @@ interface CustomInputFieldProps {
   classErrorText?: string;
 }
 
-const CustomInputField: React.FC<CustomInputFieldProps> = ({
+const HeroInput: React.FC<HeroInputProps> = ({
   inputType,
   type = "text",
   label,
@@ -170,19 +170,20 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
         ],
         innerWrapper: [
           clsx(
-            "min-h-12 bg-secondary border border-darkBronze rounded-full shadow-none flex items-center gap-2.5 px-4 py-2 relative duration-300 transition-all ease-in-out max-md:min-h-11.5",
+            "min-h-10.5 bg-charlestonGreen border border-darkLiver rounded-full shadow-none flex items-center gap-2.5 px-4 py-2 relative duration-300 transition-all ease-in-out",
             classInnerWrapper
           ),
           "hover:border-primary",
-          "group-data-[focus=true]:bg-secondary group-data-[focus=true]:border-primary",
-          "group-data-[focus-visible=true]:bg-secondary group-data-[focus-visible=true]:border-primary",
-          "group-data-[focus-within=true]:bg-secondary group-data-[focus-within=true]:border-primary",
+          "group-data-[focus=true]:bg-charlestonGreen group-data-[focus=true]:border-primary",
+          "group-data-[focus-visible=true]:bg-charlestonGreen group-data-[focus-visible=true]:border-primary",
+          "group-data-[focus-within=true]:bg-charlestonGreen group-data-[focus-within=true]:border-primary",
+          "group-data-[has-value=true]:bg-charlestonGreen group-data-[has-value=true]:text-white",
           "group-data-[disabled=true]:opacity-50 group-data-[disabled=true]:grayscale",
           "group-data-[invalid=true]:bg-danger/20 group-data-[invalid=true]:border-danger group-data-[invalid=true]:hover:border-danger",
         ],
         input: [
           clsx(
-            "w-full text-white text-base font-normal duration-300 transition-all ease-in-out focus-visible:outline-0 placeholder:text-darkBronze text-base font-normal",
+            "w-full text-white text-base font-normal duration-300 transition-all ease-in-out focus-visible:outline-0 placeholder:text-white/25 placeholder:text-base placeholder:font-normal",
             classInputField
           ),
           inputType === "dateField" ? "date-picker-input" : "",
@@ -192,7 +193,7 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
       startContent={cloneWithClassName(
         startContent,
         clsx(
-          "w-4 h-4 fill-current cursor-pointer group-hover:fill-current group-data-[focus=true]:fill-current",
+          "w-4 h-4 fill-white/25 cursor-pointer duration-300 transition-all ease-in-out group-hover:fill-primary group-data-[focus=true]:fill-primary group-data-[focus-visible=true]:fill-primary group-data-[focus-within=true]:fill-primary group-data-[has-value=true]:fill-white",
           classStartContent
         )
       )}
@@ -201,7 +202,7 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
         cloneWithClassName(
           endContent,
           clsx(
-            "w-4 h-4 fill-current cursor-pointer group-hover:fill-current group-data-[focus=true]:fill-current",
+            "w-4 h-4 fill-white/25 cursor-pointer duration-300 transition-all ease-in-out group-hover:fill-primary group-data-[focus=true]:fill-primary group-data-[focus-visible=true]:fill-primary group-data-[focus-within=true]:fill-primary group-data-[has-value=true]:fill-white",
             classEndContent
           )
         )
@@ -218,14 +219,14 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
       {showPassword ? (
         <EyeShowIcon
           className={clsx(
-            "w-4 h-4 fill-current cursor-pointer group-hover:fill-current",
+            "w-4 h-4 fill-white/25 cursor-pointer duration-300 transition-all ease-in-out group-hover:fill-primary group-data-[focus=true]:fill-primary group-data-[focus-visible=true]:fill-primary group-data-[focus-within=true]:fill-primary",
             classPasswordIcon
           )}
         />
       ) : (
         <EyeHideIcon
           className={clsx(
-            "w-4 h-4 fill-current cursor-pointer group-hover:fill-current",
+            "w-4 h-4 fill-white/25 cursor-pointer duration-300 transition-all ease-in-out group-hover:fill-primary group-data-[focus=true]:fill-primary group-data-[focus-visible=true]:fill-primary group-data-[focus-within=true]:fill-primary",
             classPasswordIcon
           )}
         />
@@ -278,4 +279,4 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
   }
 };
 
-export default CustomInputField;
+export default HeroInput;

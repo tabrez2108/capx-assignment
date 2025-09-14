@@ -12,9 +12,12 @@
     "@heroui/react": "^2.8.4",
     "@heroui/theme": "^2.4.22",
     "framer-motion": "^12.23.12",
+    "gsap": "^3.13.0",
     "next": "15.5.2",
+    "postprocessing": "^6.37.8",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "three": "^0.180.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -22,6 +25,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.180.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
     "tailwindcss": "^4.0.0",
