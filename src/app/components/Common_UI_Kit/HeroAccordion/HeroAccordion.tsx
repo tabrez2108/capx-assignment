@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Accordion, AccordionItem, AccordionProps } from "@heroui/react";
+import { Accordion, AccordionItem } from "@heroui/react";
 import ChevronRightIcon from "@/assets/icons/Chevron-Right";
 interface CustomItem {
   key?: string | number;

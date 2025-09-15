@@ -386,6 +386,7 @@ const PixelBlast: React.FC<PixelBlastProps> = ({
     touch?: ReturnType<typeof createTouchTexture>;
     liquidEffect?: Effect;
   } | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const prevConfigRef = useRef<any>(null);
   useEffect(() => {
     const container = containerRef.current;
@@ -397,6 +398,7 @@ const PixelBlast: React.FC<PixelBlastProps> = ({
     if (!threeRef.current) mustReinit = true;
     else if (prevConfigRef.current) {
       for (const k of needsReinitKeys)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (prevConfigRef.current[k] !== (cfg as any)[k]) {
           mustReinit = true;
           break;
@@ -474,6 +476,7 @@ const PixelBlast: React.FC<PixelBlastProps> = ({
       const ro = new ResizeObserver(setSize);
       ro.observe(container);
       const randomFloat = () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (typeof window !== 'undefined' && (window as any).crypto?.getRandomValues) {
           const u32 = new Uint32Array(1);
           window.crypto.getRandomValues(u32);
@@ -516,6 +519,7 @@ const PixelBlast: React.FC<PixelBlastProps> = ({
         );
         const noisePass = new EffectPass(camera, noiseEffect);
         noisePass.renderToScreen = true;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (composer && composer.passes.length > 0) composer.passes.forEach(p => ((p as any).renderToScreen = false));
         composer.addPass(noisePass);
       }
@@ -558,12 +562,15 @@ const PixelBlast: React.FC<PixelBlastProps> = ({
           return;
         }
         uniforms.uTime.value = timeOffset + clock.getElapsedTime() * speedRef.current;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (liquidEffect) (liquidEffect as any).uniforms.get('uTime').value = uniforms.uTime.value;
         if (composer) {
           if (touch) touch.update();
           composer.passes.forEach(p => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const effs = (p as any).effects;
             if (effs)
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               effs.forEach((eff: any) => {
                 const u = eff.uniforms?.get('uTime');
                 if (u) u.value = uniforms.uTime.value;
@@ -606,8 +613,10 @@ const PixelBlast: React.FC<PixelBlastProps> = ({
       if (transparent) t.renderer.setClearAlpha(0);
       else t.renderer.setClearColor(0x000000, 1);
       if (t.liquidEffect) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const uStrength = (t.liquidEffect as any).uniforms.get('uStrength');
         if (uStrength) uStrength.value = liquidStrength;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const uFreq = (t.liquidEffect as any).uniforms.get('uFreq');
         if (uFreq) uFreq.value = liquidWobbleSpeed;
       }
