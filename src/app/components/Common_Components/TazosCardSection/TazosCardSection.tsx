@@ -15,11 +15,11 @@ const TazosCardSection: React.FC = () => {
   return (
     <section className="w-full max-w-115 aspect-[516/430] mx-auto relative origin-top max-md:scale-[1.1]">
       {pathname === "/eligible" ? (
-        <div className="w-full flex justify-center items-center pointer-events-none absolute top-[40%] left-1/2 -translate-1/2">
+        <div className="w-full flex justify-center items-center pointer-events-none absolute top-[40%] left-1/2 -translate-1/2 sm:scale-[1.2]">
           <motion.div
             className="w-full m-auto"
             initial={{ opacity: 0, y: -50, scale: 0.8 }} 
-            animate={{ opacity: 1, y: 0, scale: 1.2 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
               type: "spring",
               stiffness: 300,
