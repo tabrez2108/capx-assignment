@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import StarsBackgroundAnimation from "../StarsBackgroundAnimation/StarsBackgroundAnimation";
 import CurvedUserName from "../CurvedUserName/CurvedUserName";
+import FeaturesButtonsDropdown from "../FeaturesButtonsDropdown/FeaturesButtonsDropdown";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
@@ -118,6 +119,10 @@ const TazosCardSection: React.FC = () => {
           </div>
         )}
       </div>
+
+      {pathname === "/eligible" ? (
+        <FeaturesButtonsDropdown />
+      ) : null}
     </section>
   );
 };

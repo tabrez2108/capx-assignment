@@ -55,7 +55,7 @@ const HeroButton: React.FC<HeroButtonProps> = ({
     secondary: "text-white [&_svg]:fill-white secondary-btn",
     metallic: "bg-linear-to-b from-white via-darkLiver via-48% to-silverSand to-100% border-0 text-white before:w-[calc(100%_-_2px)] before:h-[calc(100%_-_2px)] before:bg-linear-to-b before:from-philippineSilver before:to-darkLiver before:rounded-full before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 [&_svg]:fill-white metallic-btn",
     textBtn: "!min-w-[unset] !min-h-[unset] bg-transparent shadow-none p-0",
-    default: "",
+    default: "bg-raisinBlack border-gray [&_svg]:fill-white default-btn",
   };
 
   const commonClasses = `duration-300 transition-all ease-in-out group 
@@ -78,7 +78,7 @@ const HeroButton: React.FC<HeroButtonProps> = ({
 
   const clonedStartContent = cloneWithClassName(
     startContent,
-    `${classStartContent ?? ""} w-4 h-4 fill-current transition-all duration-300 ease-in-out group-hover:fill-current`
+    `${classStartContent ?? ""} w-4 h-4 transition-all duration-300 ease-in-out group-hover:fill-current`
   );
 
   const clonedEndContent = cloneWithClassName(
