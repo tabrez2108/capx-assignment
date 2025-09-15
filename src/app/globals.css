@@ -137,14 +137,7 @@ body {
 	background: var(--background);
 	font-family: var(--font-vcHenrietta);
 	color: var(--foreground);
-}
-
-span[data-slot="indicator"] {
-	@apply !rotate-90;
-}
-
-span[data-slot="indicator"][data-open="true"] {
-	@apply !-rotate-90;
+	overflow-x: hidden
 }
 
 .primary-btn,
@@ -165,4 +158,20 @@ span[data-slot="indicator"][data-open="true"] {
 .metallic-btn {
 	/* background-image: url("../../public/assets/images/metallic-btn-bg-img.webp"); */
 	@apply shadow-[0px_3px_4px_0px_#000000,0px_0px_0px_1px_#392A47] [&_span,&_svg]:drop-shadow-[0_-1px_0_#5F5F5F];
+}
+
+.truncate-2-lines {
+  display: -webkit-box;          /* Required for webkit */
+  -webkit-line-clamp: 2;          /* Number of lines to show */
+  -webkit-box-orient: vertical;   /* Vertical box orientation */
+  overflow: hidden;               /* Hide overflowing text */
+  text-overflow: ellipsis;        /* Add ellipsis */
+}
+
+span[data-slot="indicator"] {
+	@apply !rotate-90;
+}
+
+span[data-slot="indicator"][data-open="true"] {
+	@apply !-rotate-90;
 }

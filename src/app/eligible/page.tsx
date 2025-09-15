@@ -4,9 +4,10 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import BackgroundAnimation from "../components/Common_Components/BackgroundAnimation/BackgroundAnimation";
 import HeaderSection from "../components/Common_Components/HeaderSection/HeaderSection";
-import EligibleImage from "./sub-components/EligibleImage";
-import TazosClaimSection from "../components/Common_Components/TazosClaimSection/TazosClaimSection";
+import TazosSection from "../components/Common_Components/TazosSection/TazosSection";
 import EligibilitySearchSection from "../components/Common_Components/EligibilitySearchSection/EligibilitySearchSection";
+import FAQsSection from "../landing/sub-components/FAQsSection";
+import FooterSection from "../components/Common_Components/FooterSection/FooterSection";
 
 export default function EligiblePage() {
   const [inputValue, setInputValue] = useState("");
@@ -39,7 +40,7 @@ export default function EligiblePage() {
 
   return (
     <div className="w-full min-h-dvh">
-      <div className="w-full relative">
+      <div className="w-full min-h-full relative">
         {/* Background animation start here */}
         <BackgroundAnimation />
 
@@ -47,20 +48,21 @@ export default function EligiblePage() {
           {/* Header section start here */}
           <HeaderSection />
 
-          <div className="flex-1 flex justify-center items-center flex-col gap-4 px-5 relative">
-            {/* Eligible image section start here */}
-            <EligibleImage />
-
-            {/* Tazos claim section start here */}
-            <TazosClaimSection />
-          </div>
+          {/* Tazos section start here */}
+          <TazosSection />
         </div>
       </div>
 
-      <div className="w-full max-w-4xl z-30 relative pt-4 pb-0 px-5 mx-auto md:pt-6 [&>section]:pb-0">
+      <div className="w-full z-30 relative px-5 py-25 mx-auto">
         {/* Eligibility search section start here */}
           <EligibilitySearchSection inputValue={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit} />
+
+        {/* FAQ section start here */}
+        <FAQsSection />
       </div>
+
+      {/* Footer section start here */}
+      <FooterSection />
     </div>
   );
 }

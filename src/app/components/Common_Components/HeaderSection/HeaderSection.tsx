@@ -7,7 +7,7 @@ const svgPath = "/assets/svg/";
 
 const HeaderSection: React.FC = () => {
   return (
-    <header className="w-full flex items-center justify-center shrink-0 z-30 relative px-5 py-4 mb-6 mt-9.5">
+    <header className="w-full flex items-center justify-center shrink-0 z-30 relative px-5 py-4 mb-2 mt-9.5 max-md:mt-5">
       <div className="flex justify-center items-center gap-4">
         <Image 
           fill

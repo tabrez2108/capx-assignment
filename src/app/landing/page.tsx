@@ -4,8 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import BackgroundAnimation from "../components/Common_Components/BackgroundAnimation/BackgroundAnimation";
 import HeaderSection from "../components/Common_Components/HeaderSection/HeaderSection";
-import TazosCardSection from "../components/Common_Components/TazosCardSection/TazosCardSection";
-import TazosClaimSection from "../components/Common_Components/TazosClaimSection/TazosClaimSection";
+import TazosSection from "../components/Common_Components/TazosSection/TazosSection";
 import EligibilitySearchSection from "../components/Common_Components/EligibilitySearchSection/EligibilitySearchSection";
 import FAQsSection from "./sub-components/FAQsSection";
 import FooterSection from "../components/Common_Components/FooterSection/FooterSection";
@@ -40,7 +39,7 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-dvh">
+    <div className="w-full min-h-dvh">
       <div className="w-full min-h-full relative">
         {/* Background animation start here */}
         <BackgroundAnimation />
@@ -49,13 +48,8 @@ export default function Landing() {
           {/* Header section start here */}
           <HeaderSection />
 
-          <div className="flex-1 flex justify-center items-center flex-col gap-4 px-5 relative">
-            {/* Tazos card section start here */}
-            <TazosCardSection />
-
-            {/* Tazos claim section start here */}
-            <TazosClaimSection />
-          </div>
+          {/* Tazos section start here */}
+          <TazosSection />
         </div>
       </div>
 

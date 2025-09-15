@@ -47,7 +47,7 @@ export default function NotEligiblePage() {
           {/* Header section start here */}
           <HeaderSection />
 
-          <div className="flex-1 flex justify-center items-center flex-col gap-4 px-5 relative">
+          <div className="flex-1 flex justify-center items-center flex-col gap-4 px-5 relative max-md:gap-10">
             {/* Not eligible image section start here */}
             <NotEligibleImage />
 
@@ -57,7 +57,7 @@ export default function NotEligiblePage() {
         </div>
       </div>
 
-      <div className="w-full max-w-4xl z-30 relative pt-4 pb-0 px-5 mx-auto md:pt-6 [&>section]:pb-0">
+      <div className="w-full z-30 relative px-5 py-25 mx-auto">
         {/* Eligibility search section start here */}
           <EligibilitySearchSection inputValue={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit} />
       </div>

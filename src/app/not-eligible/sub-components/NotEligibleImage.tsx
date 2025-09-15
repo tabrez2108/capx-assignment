@@ -8,7 +8,7 @@ const imgPath = "/assets/images/";
 const NotEligibleImage: React.FC = () => {
   return (
     <section className="w-full max-w-104 mx-auto">
-      <div className="w-full max-w-100 mx-auto relative">
+      <div className="w-full max-w-90 mx-auto relative">
         <Image 
           fill
           src={`${imgPath}not-eligible-img.webp`} 
