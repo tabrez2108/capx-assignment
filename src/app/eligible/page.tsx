@@ -55,7 +55,12 @@ export default function EligiblePage() {
 
       <div className="w-full z-30 relative px-5 py-25 mx-auto">
         {/* Eligibility search section start here */}
-          <EligibilitySearchSection inputValue={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit} />
+        <EligibilitySearchSection 
+          inputValue={inputValue} 
+          setInputValue={handleInputChange}
+          handleSubmit={handleSubmit} 
+          eligibilityStatus={eligibilityStatus}
+        />
 
         {/* FAQ section start here */}
         <FAQsSection />
