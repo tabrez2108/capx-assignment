@@ -37,7 +37,7 @@ const CustomAccordion: React.FC<CustomAccordionProps> = ({
         <AccordionItem
           key={item.key ?? index}
           aria-label={item.ariaLabel ?? `Accordion ${index + 1}`}
-          className={`border-b-1 border-onyx flex-row-reverse gap-1 cursor-pointer py-0 duration-300 transition-all ease-in-out last:border-b-0 [&_section>div]:pt-0 [&_section>div]:pb-4 ${
+          className={`border-b-1 border-onyx flex-row-reverse gap-1 cursor-pointer py-0 duration-300 transition-all ease-in-out last:border-b-0 [&_section>div]:pt-0 [&_section>div]:pb-4 [&_button[data-slot="trigger"]]:cursor-pointer ${
             classNames.trigger ?? ""
           }`}
           title={
