@@ -4,8 +4,9 @@ import ChevronDownIcon from "@/assets/icons/Chevron-Down";
 // import LoadingSpinner from "./sub-components/LoadingSpinner";
 
 interface HeroButtonProps extends Omit<ButtonProps, "className"> {
-  buttonType?: "primary" | "secondary" | "textBtn" | "default";
+  buttonType?: "primary" | "secondary" | "metallic" | "textBtn" | "default";
   buttonLarge?: boolean;
+  buttonSmall?: boolean;
   dropdownArrowBtn?: boolean;
   buttonGroup?: boolean;
   label?: string;
@@ -28,6 +29,7 @@ const HeroButton: React.FC<HeroButtonProps> = ({
   type = "button",
   variant = "solid",
   buttonLarge = false,
+  buttonSmall = false,
   isIconOnly = false,
   isDisabled = false,
   isLoading = false,
@@ -49,14 +51,16 @@ const HeroButton: React.FC<HeroButtonProps> = ({
   ...rest
 }) => {
   const buttonStyles: Record<string, string> = {
-    primary: "bg-primary border-primary text-white [&_svg]:fill-white",
-    secondary: "bg-secondary border-secondary text-white [&_svg]:fill-white",
+    primary: "text-white [&_svg]:fill-white primary-btn",
+    secondary: "text-white [&_svg]:fill-white secondary-btn",
+    metallic: "bg-linear-to-b from-white via-darkLiver via-48% to-silverSand to-100% border-0 text-white before:w-[calc(100%_-_2px)] before:h-[calc(100%_-_2px)] before:bg-linear-to-b before:from-philippineSilver before:to-darkLiver before:rounded-full before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 [&_svg]:fill-white metallic-btn",
     textBtn: "!min-w-[unset] !min-h-[unset] bg-transparent shadow-none p-0",
     default: "",
   };
 
   const commonClasses = `duration-300 transition-all ease-in-out group 
   ${buttonLarge ? "text-lg px-4 py-2" : ""} 
+  ${buttonSmall ? "min-w-8 min-h-8 text-sm px-4 py-1" : ""} 
   ${isIconOnly ? "p-2" : ""}`;
 
   function cloneWithClassName(
@@ -90,7 +94,7 @@ const HeroButton: React.FC<HeroButtonProps> = ({
   const renderButton = (
     <Button
       {...rest}
-      className={`w-fit min-w-11 min-h-11 border rounded-full text-base font-semibold flex justify-center items-center gap-1.5 cursor-pointer outline-none px-5 py-3 [&_svg]:w-4 [&_svg]:h-4 ${className ?? ""} ${commonClasses} ${buttonStyles[buttonType]} ${
+      className={`w-fit min-w-10.5 h-[unset] min-h-10.5 border rounded-full text-base font-semibold flex justify-center items-center gap-1.5 cursor-pointer outline-none px-5 py-2 [&_svg]:w-4 [&_svg]:h-4 ${className ?? ""} ${commonClasses} ${buttonStyles[buttonType]} ${
         isDisabled ? "cursor-not-allowed" : ""
       }`}
       type={type}
