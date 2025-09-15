@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-// import BackgroundAnimation from "../components/Common_Components/BackgroundAnimation/BackgroundAnimation";
+import BackgroundAnimation from "../components/Common_Components/BackgroundAnimation/BackgroundAnimation";
 import HeaderSection from "../components/Common_Components/HeaderSection/HeaderSection";
 import TazosSection from "../components/Common_Components/TazosSection/TazosSection";
 import EligibilitySearchSection from "../components/Common_Components/EligibilitySearchSection/EligibilitySearchSection";
@@ -42,7 +42,7 @@ export default function EligiblePage() {
     <div className="w-full">
       <div className="w-full min-h-full relative">
         {/* Background animation start here */}
-        {/* <BackgroundAnimation /> */}
+        <BackgroundAnimation />
 
         <div className="flex flex-col z-10 relative">
           {/* Header section start here */}

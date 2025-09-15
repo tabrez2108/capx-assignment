@@ -3,9 +3,11 @@
 import React from "react";
 import PixelBlast from "./PixelBlast";
 
+// [mask-image:linear-gradient(to_top,transparent,black_15%)]
+
 const BackgroundAnimation: React.FC = () => {
   return (
-    <div className="w-full min-h-dvh absolute inset-0 pointer-events-none rotate-180 [mask-image:linear-gradient(to_top,transparent,black_15%)]">
+    <div className="w-full min-h-dvh absolute inset-0 pointer-events-none rotate-180">
       <div className="w-full h-full relative">
         <PixelBlast
           variant="square"
