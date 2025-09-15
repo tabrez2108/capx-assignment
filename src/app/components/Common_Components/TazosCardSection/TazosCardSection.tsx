@@ -103,7 +103,7 @@ const TazosCardSection: React.FC = () => {
                 Gets Shit Done
               </h6>
               <p className="text-darkSilver text-[clamp(0.5rem,_2vw,_0.75rem)] leading-[1.1] truncate-2-lines">
-                A rare catch. Someone you can always count on. This one's a keeper.
+                A rare catch. Someone you can always count on. This one&#39;s a keeper.
               </p>
             </div>
           </div>
