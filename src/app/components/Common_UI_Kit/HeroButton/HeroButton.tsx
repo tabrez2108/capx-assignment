@@ -53,7 +53,7 @@ const HeroButton: React.FC<HeroButtonProps> = ({
   const buttonStyles: Record<string, string> = {
     primary: "text-white [&_svg]:fill-white primary-btn",
     secondary: "text-white [&_svg]:fill-white secondary-btn",
-    metallic: "bg-linear-to-b from-white via-darkLiver via-48% to-silverSand to-100% border-0 text-white before:w-[calc(100%_-_2px)] before:h-[calc(100%_-_2px)] before:bg-linear-to-b before:from-philippineSilver before:to-darkLiver before:rounded-full before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 [&_svg]:fill-white metallic-btn",
+    metallic: "bg-linear-to-b from-white via-darkLiver via-48% to-silverSand to-100% border-0 text-white before:w-[calc(100%_-_2px)] before:h-[calc(100%_-_2px)] before:bg-linear-to-b before:from-philippineSilver before:to-darkLiver before:rounded-full before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 after:w-[calc(100%_-_2px)] after:h-[calc(100%_-_2px)] after:bg-black/0 after:rounded-full after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 hover:after:bg-black/30 [&_svg]:fill-white metallic-btn",
     textBtn: "!min-w-[unset] !min-h-[unset] bg-transparent shadow-none p-0",
     default: "bg-raisinBlack border-gray [&_svg]:fill-white default-btn",
   };
@@ -109,12 +109,12 @@ const HeroButton: React.FC<HeroButtonProps> = ({
     >
       {clonedIcon}
       {label && (
-        <span className={`${classLabel ?? ""} transition-all duration-300 ease-in-out`}>
+        <span className={`${classLabel ?? ""} z-1 transition-all duration-300 ease-in-out`}>
           {label}
         </span>
       )}
       {children && (
-        <span className={`${classChildren ?? ""} transition-all duration-300 ease-in-out`}>
+        <span className={`${classChildren ?? ""} z-1 transition-all duration-300 ease-in-out`}>
           {children}
         </span>
       )}

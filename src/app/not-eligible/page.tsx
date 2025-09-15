@@ -38,7 +38,7 @@ export default function NotEligiblePage() {
   };
 
   return (
-    <div className="w-full min-h-dvh">
+    <div className="w-full">
       <div className="w-full relative">
         {/* Background animation start here */}
         <BackgroundAnimation />
