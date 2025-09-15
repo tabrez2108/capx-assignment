@@ -134,10 +134,11 @@
 }
 
 body {
+	width: 100vw;
 	background: var(--background);
 	font-family: var(--font-vcHenrietta);
 	color: var(--foreground);
-	overflow-x: hidden
+	overflow-x: hidden;
 }
 
 .primary-btn,
