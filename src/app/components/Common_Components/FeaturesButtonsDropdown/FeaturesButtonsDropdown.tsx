@@ -7,6 +7,7 @@ import {
   PopoverContent,
   PopoverProps,
 } from "@heroui/react";
+import { motion } from "framer-motion";
 import HeroButton from "../../Common_UI_Kit/HeroButton/HeroButton";
 import ChevronDownIcon from "@/assets/icons/Chevron-Down";
 import TwitterXIcon from "@/assets/icons/Twitter-X";
@@ -47,15 +48,38 @@ const FeaturesButtonsDropdown: React.FC<FeaturesButtonsDropdownProps> = ({
     { icon: <ImageIcon />, label: "Download PFP" },
   ];
 
+  // Framer Motion variants for stagger animation
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08, // faster staggering
+        when: "beforeChildren",
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -6, scale: 0.96 },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.2, // faster animation per item
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <div
       className={`absolute top-0 ${
-        isMobile
-          ? "right-2 scale-[0.85] origin-top-right"
-          : "pt-1 right-0"
+        isMobile ? "right-2 scale-[0.85] origin-top-right" : "pt-1 right-0"
       } ${contentClassName}`}
     >
-      {/* @ts-expect-error: placement prop missing from PopoverProps types but valid at runtime */}
+      {/* @ts-expect-error placement prop missing from PopoverProps types but valid at runtime */}
       <Popover {...popoverProps} placement={isMobile ? "bottom" : "bottom-start"}>
         <PopoverTrigger>
           {trigger ?? (
@@ -70,29 +94,34 @@ const FeaturesButtonsDropdown: React.FC<FeaturesButtonsDropdownProps> = ({
 
         <PopoverContent
           className={`p-0 ${
-            isMobile
-              ? "scale-[0.824] origin-top"
-              : "pt-1"
+            isMobile ? "scale-[0.824] origin-top" : "pt-1"
           } ${contentClassName}`}
         >
           {children ?? (
-            <div className="flex flex-col gap-2.5">
+            <motion.div
+              className="flex flex-col gap-2.5"
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+            >
               {buttons.map((btn, i) => (
-                <HeroButton
-                  key={i}
-                  startContent={btn.icon}
-                  isIconOnly={isMobile}
-                  className={
-                    isMobile
-                      ? "!min-w-10 !min-h-10"
-                      : "!min-w-10 !min-h-10 !text-sm !font-normal !gap-2.5 !px-3"
-                  }
-                  classStartContent="!fill-philippineSilver"
-                >
-                  {!isMobile && btn.label}
-                </HeroButton>
+                // @ts-expect-error variants prop missing from PopoverProps types but valid at runtime
+                <motion.div key={i} variants={itemVariants}>
+                  <HeroButton
+                    startContent={btn.icon}
+                    isIconOnly={isMobile}
+                    className={
+                      isMobile
+                        ? "!min-w-10 !min-h-10"
+                        : "!min-w-10 !min-h-10 !text-sm !font-normal !gap-2.5 !px-3"
+                    }
+                    classStartContent="!fill-philippineSilver"
+                  >
+                    {!isMobile && btn.label}
+                  </HeroButton>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           )}
         </PopoverContent>
       </Popover>

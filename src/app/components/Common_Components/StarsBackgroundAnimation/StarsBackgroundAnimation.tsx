@@ -34,20 +34,31 @@ const StarsBackgroundAnimation: React.FC<StarsBackgroundAnimationProps> = ({
       {paths.map((d, index) => {
         const duration = 0.75 + Math.random() * 1.5;
         const delay = Math.random() * 1.5;
+        const introDelay = Math.random() * 0.3;
 
         return (
           <motion.path
             key={index}
             d={d}
             fill={fill}
-            initial={{ opacity: 1 }}
-            animate={{ opacity: [1, 0, 1] }}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{
+              opacity: [1, 0.1, 1],
+              scale: 1,
+            }}
             transition={{
-              duration,
-              delay,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
+              opacity: {
+                duration,
+                delay,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+              },
+              scale: {
+                duration: 0.75,
+                delay: introDelay,
+                ease: "easeOut",
+              },
             }}
           />
         );

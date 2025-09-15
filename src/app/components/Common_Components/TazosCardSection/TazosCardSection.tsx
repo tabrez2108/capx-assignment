@@ -6,7 +6,7 @@ import StarsBackgroundAnimation from "../StarsBackgroundAnimation/StarsBackgroun
 import CurvedUserName from "../CurvedUserName/CurvedUserName";
 import FeaturesButtonsDropdown from "../FeaturesButtonsDropdown/FeaturesButtonsDropdown";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 const imgPath = "/assets/images/";
 
@@ -17,19 +17,19 @@ const TazosCardSection: React.FC = () => {
     <section className="w-full max-w-115 aspect-[516/430] mx-auto relative origin-top max-md:scale-[1.1]">
       {pathname === "/eligible" ? (
         <div className="w-full flex justify-center items-center pointer-events-none absolute top-[40%] left-1/2 -translate-1/2 sm:scale-[1.2]">
-          <motion.div
+          <div
             className="w-full m-auto"
-            initial={{ opacity: 0, y: -50, scale: 0.8 }} 
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 15,
-              delay: 0.2,
-            }}
+            // initial={{ opacity: 0, y: -50, scale: 0.8 }} 
+            // animate={{ opacity: 1, y: 0, scale: 1 }}
+            // transition={{
+            //   type: "spring",
+            //   stiffness: 300,
+            //   damping: 15,
+            //   delay: 0.2,
+            // }}
           >
             <StarsBackgroundAnimation />
-          </motion.div>
+          </div>
         </div>
       ) : null}
 
