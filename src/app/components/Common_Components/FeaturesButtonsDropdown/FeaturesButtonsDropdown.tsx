@@ -65,7 +65,7 @@ const FeaturesButtonsDropdown: React.FC<FeaturesButtonsDropdownProps> = ({
         <PopoverContent
           className={`p-0 ${
             isMobile
-              ? "ml-1.5 scale-[0.85] origin-top-right"
+              ? "scale-[0.85] origin-top-right"
               : "pt-1"
           } ${contentClassName}`}
         >
