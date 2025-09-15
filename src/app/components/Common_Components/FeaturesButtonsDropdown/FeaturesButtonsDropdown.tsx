@@ -26,7 +26,7 @@ const FeaturesButtonsDropdown: React.FC<FeaturesButtonsDropdownProps> = ({
   trigger,
   children,
   contentClassName = "",
-  placement = "bottom-start",
+  placement,
   ...popoverProps
 }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -56,7 +56,7 @@ const FeaturesButtonsDropdown: React.FC<FeaturesButtonsDropdownProps> = ({
       } ${contentClassName}`}
     >
       {/* @ts-expect-error: placement prop missing from PopoverProps types but valid at runtime */}
-      <Popover {...popoverProps} placement={placement}>
+      <Popover {...popoverProps} placement={isMobile ? "bottom" : "bottom-start"}>
         <PopoverTrigger>
           {trigger ?? (
             <HeroButton
@@ -71,7 +71,7 @@ const FeaturesButtonsDropdown: React.FC<FeaturesButtonsDropdownProps> = ({
         <PopoverContent
           className={`p-0 ${
             isMobile
-              ? "scale-[0.85] origin-top-right"
+              ? "scale-[0.824] origin-top"
               : "pt-1"
           } ${contentClassName}`}
         >
