@@ -14,19 +14,19 @@ import CopyIcon from "@/assets/icons/Copy";
 import DownloadIcon from "@/assets/icons/Download";
 import ImageIcon from "@/assets/icons/Image";
 
-interface FeaturesButtonsDropdownProps
-  extends Omit<PopoverProps, "children"> {
+interface FeaturesButtonsDropdownProps extends Omit<PopoverProps, "children"> {
   trigger?: React.ReactNode;
   children?: React.ReactNode;
   contentClassName?: string;
+  /** Optional placement for Popover */
   placement?: string;
 }
 
 const FeaturesButtonsDropdown: React.FC<FeaturesButtonsDropdownProps> = ({
   trigger,
   children,
-  placement = "bottom-start",
   contentClassName = "",
+  placement = "bottom-start",
   ...popoverProps
 }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -35,7 +35,7 @@ const FeaturesButtonsDropdown: React.FC<FeaturesButtonsDropdownProps> = ({
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    handleResize(); // initial check
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -49,6 +49,7 @@ const FeaturesButtonsDropdown: React.FC<FeaturesButtonsDropdownProps> = ({
 
   return (
     <div className="absolute top-0 right-0 max-sm:scale-[0.75]">
+      {/* @ts-expect-error: placement prop missing from PopoverProps types but valid at runtime */}
       <Popover {...popoverProps} placement={placement}>
         <PopoverTrigger>
           {trigger ?? (
@@ -61,7 +62,13 @@ const FeaturesButtonsDropdown: React.FC<FeaturesButtonsDropdownProps> = ({
           )}
         </PopoverTrigger>
 
-        <PopoverContent className={`p-0 ${isMobile ? "ml-1.5 scale-[0.85] origin-top-right" : "pt-1"} ${contentClassName}`}>
+        <PopoverContent
+          className={`p-0 ${
+            isMobile
+              ? "ml-1.5 scale-[0.85] origin-top-right"
+              : "pt-1"
+          } ${contentClassName}`}
+        >
           {children ?? (
             <div className="flex flex-col gap-2.5">
               {buttons.map((btn, i) => (
