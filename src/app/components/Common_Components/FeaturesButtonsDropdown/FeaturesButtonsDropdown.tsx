@@ -52,7 +52,7 @@ const FeaturesButtonsDropdown: React.FC<FeaturesButtonsDropdownProps> = ({
       className={`absolute top-0 ${
         isMobile
           ? "right-2 scale-[0.85] origin-top-right"
-          : "pt-1"
+          : "pt-1 right-0"
       } ${contentClassName}`}
     >
       {/* @ts-expect-error: placement prop missing from PopoverProps types but valid at runtime */}
